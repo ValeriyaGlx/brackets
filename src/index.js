@@ -10,18 +10,23 @@ module.exports = function check(str, bracketsConfig) {
     }
     
     for(let j=0; j<str.length; j++){
+    
         if(opens.includes(str[j])){
             stuck.push(str[j])
         }  else {
-            if(stuck.length===0) return false
-        }
-    
-        let currentSign = stuck[stuck.length -1]
+            if(stuck.length===0) {return false};
+         
+     let currentSign = stuck[stuck.length -1]
+     
      if(pairs[str[j]]===currentSign){
         stuck.pop()
-     }
+     } else {return false}
+        }
     }
-    console.log(stuck);
+    
+    
     return stuck.length === 0
+    
+    
       }
 }
